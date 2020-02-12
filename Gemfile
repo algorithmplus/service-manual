@@ -16,11 +16,16 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 
-gem 'contentful', '~> 2.15'
-gem 'rich_text_renderer', '~> 0.2'
+# Contentful gems
+gem 'contentful'
+gem 'rich_text_renderer'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+
+# Linting
+gem 'rubocop'
+gem 'rubocop-govuk'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -28,6 +33,7 @@ group :development, :test do
 end
 
 group :development do
+  # Linting
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
