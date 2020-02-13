@@ -1,0 +1,17 @@
+inherit_gem:
+  rubocop-govuk: 
+    - config/default.yml
+    - config/rails.yml
+
+AllCops:
+  Exclude:
+    - 'bin/rails'
+    - 'bin/rake'
+    - 'bin/setup'
+    - 'bin/update'
+    - 'bin/yarn'
+    - 'bin/webpack'
+    - 'bin/webpack-dev-server'
+    - 'db/schema.rb'
+    - 'node_modules/**/*'
+
