@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Connecting to contentful:
 
-Things you may want to cover:
+In `development.local.yml` put the following YML with the correct values:
 
-* Ruby version
+```yaml
+contentful:
+  space_id: '<space_id>'
+  access_token: '<access_token>'
 
-* System dependencies
+```
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
