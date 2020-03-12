@@ -1,65 +1,154 @@
-source "https://rubygems.org"
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+source 'https://rubygems.org'
+git_source(:github) do |repo|
+  "https://github.com/#{repo}.git"
+end
 
-ruby "2.6.1"
+ruby File.read('.ruby-version').chomp
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem "rails", "~> 6.0.2", ">= 6.0.2.1"
-# Use Puma as the app server
-gem "puma", "~> 4.1"
-# Use SCSS for stylesheets
-gem "sass-rails", ">= 6"
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem "webpacker", "~> 4.0"
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem "turbolinks", "~> 5"
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem "jbuilder", "~> 2.7"
+gem 'rails', '~> 6.0.0'
+gem 'rails-i18n', '~> 6.0.0'
 
-# Contentful gems
-gem "contentful"
+# gov.uk front end components
+gem "govuk_publishing_components", "~> 21.27.1"
+
+# redcarpet for processing markdown
+gem 'redcarpet', '~> 3.5.0'
+
+# contentful headless CMS
+gem 'contentful', '~>2.15.2'
+
+gem 'contentful_rails', '~>0.5.0'
+# contentful model for activerecord like support
+gem 'contentful_model', '~>1.3.0'
+
 gem "rich_text_renderer"
 
+# Azure AD integration with Omniauth and OAuth2
+gem 'omniauth-oauth2', '~> 1.6'
+gem 'omniauth-rails_csrf_protection', '~> 0.1'
+
+# Gem for user activity auditing
+gem 'paper_trail', '~> 10.3'
+
+# Use postgresql as the database for Active Record
+gem 'pg', '>= 0.18', '< 2.0'
+
+# Use Puma as the app server
+gem 'puma', '~> 4.3'
+
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+
+# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
+gem 'webpacker', '~> 4.0'
+
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", ">= 1.4.2", require: false
+gem 'bootsnap', '>= 1.1.0', require: false
 
-# Linting
-gem "rubocop"
-gem "rubocop-govuk"
+# Manage multiple processes i.e. web server and webpack
+gem 'foreman'
 
-# Config gem
-gem "config"
+# Canonical meta tag
+gem 'canonical-rails'
+
+# Exception handling
+gem 'sentry-raven', '~> 2.11'
+
+# Pagination
+gem 'kaminari', '~> 1.1', '>= 1.1.1'
+
+# Postcode geocoding and geospatial queries
+gem 'geocoder', '~> 1.5', '>= 1.5.1'
+
+# Postcode validation
+gem 'uk_postcode', '~> 2.1', '>= 2.1.4'
+
+# Web scraper
+gem 'wombat', '~> 2.8'
+
+# Feature flags
+gem 'flipflop', '~> 2.6'
+gem 'splitclient-rb', '~> 6.4'
+
+# Hashdiff is a ruby library to compute the smallest difference between two hashes.
+gem 'hashdiff', '~> 1.0'
+
+# Session store backed by ActiveRecord
+gem 'activerecord-session_store', '~> 1.1'
+
+# Notify service - send SMS/Email notifications
+gem 'notifications-ruby-client', '~> 4.0'
+
+# Passwordless authentication
+gem 'passwordless', '~> 0.8'
+
+# Logs formatter
+gem 'rails_semantic_logger', '~> 4.4'
+
+
+# Authorization gem
+gem 'cancancan', '~> 3.0', '>= 3.0.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem "byebug", platforms: %i[mri mingw x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+
+  # Security scanner
+  gem 'brakeman', '~> 4.5'
+
+  # GOV.UK interpretation of rubocop for linting Ruby
+  gem 'govuk-lint'
+
+  gem 'rspec_junit_formatter', '~> 0.4.1'
+
+  # Debugging
+  gem 'pry-byebug'
+
+  # Testing framework
+  gem 'rspec-rails', '~> 4.0.0.beta3'
+
+  # Handle env vars
+  gem 'dotenv-rails', '~> 2.7.0'
+
+  # Entity relationship diagrams
+  gem 'rails-erd', '~> 1.6'
+
+  # Test data
+  gem 'factory_bot_rails', '~> 5.0'
+  gem 'faker', '~> 2.8'
+
 end
 
 group :development do
-  # Linting
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem "listen", ">= 3.0.5", "< 3.2"
-  gem "web-console", ">= 3.3.0"
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem "spring"
-  gem "spring-watcher-listen", "~> 2.0.0"
+  gem 'listen', '>= 3.0.5', '< 3.3'
+  gem 'web-console', '>= 3.3.0'
 
-  # Better errors
-  gem "better_errors"
-  gem "binding_of_caller"
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+
+  # Ruby code analyzer and formatter
+  gem 'rubocop', '~> 0.68'
+  gem 'rubocop-rspec', '~> 1.32'
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem "capybara", ">= 2.15"
+  gem 'capybara', '>= 2.15'
 
-  # Rspec for tests
-  gem "rspec-rails", "~> 4.0.0.beta4"
-  gem "rspec_junit_formatter"
-  gem "selenium-webdriver"
-  # Easy installation and use of web drivers to run system tests with browsers
-  gem "webdrivers"
+  gem 'database_cleaner', '~> 1.7'
+
+  gem 'selenium-webdriver', '~> 3.142', '>= 3.142.3'
+
+  # Easy installation and use of browser drivers to run system tests with different browsers
+  gem 'webdrivers', '~> 4.0'
+
+  # Test coverage reporting
+  gem 'simplecov', '~> 0.16', require: false
+
+  # Web request caching for tests
+  gem 'vcr', '~> 5.0', require: false
+  gem 'webmock', '~> 3.6', require: false
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]

@@ -10,23 +10,39 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
-!/log/.keep
-!/tmp/.keep
 
+# Ignore uploaded files in development
+/storage/*
 
 /public/assets
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-
 /public/packs
 /public/packs-test
 /node_modules
-/yarn-error.log
 yarn-debug.log*
 .yarn-integrity
 
-config/settings.local.yml
-config/settings/*.local.yml
-config/environments/*.local.yml
+# Ignore generated documentation
+erd.pdf
+primary_erd.pdf
+restricted_erd.pdf
+
+.env
+.env.*.local
+*.log
+coverage
+**/local-parameters.json
+.DS_Store
+
+.idea
+/.idea/
+*.iml
+*.ipr
+out/
+.idea_modules/
+
+**/contentful_spec.rb
+

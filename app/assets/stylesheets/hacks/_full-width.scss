@@ -1,0 +1,10 @@
+.app-full-width {
+  #global-header-bar { // scss-lint:disable IdSelector
+    display: none;
+  }
+}
+
+.app-\!-full-width-override {
+  margin: auto !important;
+  max-width: none !important;
+}

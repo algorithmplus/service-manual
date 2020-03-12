@@ -1,0 +1,7 @@
+// Print-specific styling
+
+$is-print: true;
+
+@import "govuk_publishing_components/all_components_print";
+@import "mixins/margins";
+@import "mixins/print";

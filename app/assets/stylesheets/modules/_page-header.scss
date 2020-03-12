@@ -1,0 +1,20 @@
+.app-page-header {
+  &__intro {
+    p {
+      @extend %govuk-body-m;
+    }
+
+    a {
+      @extend %govuk-link;
+    }
+  }
+
+  &__heading {
+    margin-bottom: govuk-spacing(3);
+
+    @include govuk-media-query($from: tablet) {
+      margin-bottom: govuk-spacing(7) + govuk-spacing(1);
+      margin-top: govuk-spacing(7) + govuk-spacing(1);
+    }
+  }
+}

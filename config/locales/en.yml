@@ -1,33 +1,249 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
+en-GB:
+  breadcrumb:
+    home: Home
+    action_plan: Action plan
+    offers_near_me: Offers near me
+    training_questions: Training options
+    it_training_questions: Computer skills training
+    job_hunting_questions: Job hunting advice
+    jobs_near_me: Jobs near me
+    task_list: Get help to retrain
+    task_list_home: 'Home: Get help to retrain'
+    check_your_skills: Check your existing skills
+    job_matches: Your job matches
+    search_results: Search results
+    job_profiles_search: Search for a type of work
+    job_profile: Job profile details
+    your_skills: Your skills
+    training_courses_near_you: Find and apply to training courses near you
+    location_ineligible: No courses in your area
+    current_job_skills: Job skills
+    user_personal_data: Your information
+    save_your_results: Save your progress
+    return_to_saved_results: Return to saved progress
+    link_sent: Link sent
+    results_saved: Progress saved
+    email_sent_again: Email sent again
+    link_sent_again: Link sent again
+    link_expired: Link expired
+    cookies_policy: Cookies
+    cv_advice: CV advice
+    cover_letter_advice: Cover letter advice
+    interview_advice: Interview advice
 
-en:
-  hello: "Hello world"
+  page_titles:
+    default: Get help to retrain
+    home_index: Get help to retrain - Home
+    check_your_skills_index: Get help to retrain - Check your skills
+    check_your_skills_results: Get help to retrain - Check your skills results
+    skills_index: Get help to retrain - Your skills
+    skills_current_job_skills: Get help to retrain - Current job skills
+    skills_matcher_index: Get help to retrain - Your job matches
+    job_profiles_index: Get help to retrain - Search for a type of work
+    job_profiles_results: Get help to retrain - Search for a type of work results
+    job_profiles_show: Get help to retrain - Job profile
+    courses_index: Get help to retrain - Courses near me
+    pages_task_list: Get help to retrain - Tasks
+    pages_cookies_policy: Get help to retrain - Cookies policy
+    pages_privacy_policy: Get help to retrain - Privacy policy
+    pages_location_ineligible: Get help to retrain - No courses in your area
+    pages_action_plan: Get help to retrain - Action plan
+    pages_offers_near_me: Get help to retrain - Offers near me
+    pages_cv_advice: Get help to retrain - CV advice
+    pages_cover_letter_advice: Get help to retrain - Cover letter advice
+    pages_interview_advice: Get help to retrain - Interview advice
+    pages_information_sources: Get help to retrain - Information sources
+    pages_accessibility_statement: Get help to retrain - Accessibility
+    pages_terms_and_conditions: Get help to retrain - Terms and Conditions
+    training_questions: Get help to retrain - Training options
+    job_hunting_questions: Get help to retrain - Job hunting advice
+    user_personal_data: Get help to retrain - Your information
+    jobs_near_me: Get help to retrain - Jobs near me
+    errors_not_found: Get help to retrain - Not found
+    errors_unprocessable_entity: Get help to retrain - Unprocessable entity
+    errors_internal_server_error: Get help to retrain - Internal server error
+    errors_postcode_search_error: Get help to retrain - Postcode search error
+    errors_jobs_near_me_error: Get help to retrain - Jobs near me error
+    errors_return_to_saved_results_error: Get help to retrain - Return to saved results error
+    errors_save_results_error: Get help to retrain - Save your results error
+    save_your_results: Get help to retrain - Save your results
+    return_to_saved_results: Get help to retrain - Return to saved results
+    link_sent: Get help to retrain - Link sent
+    results_saved: Get help to retrain - Results saved
+    email_sent_again: Get help to retrain - Email sent again
+    link_sent_again: Get help to retrain - Link sent again
+    link_expired: Get help to retrain - Link expired
+
+  events:
+    pages_location_eligibility_search: Your location - Postcode search
+    check_your_skills_index_search: Check your skills - Job search
+    job_profiles_index_search: Job profiles - Job search
+    courses_index_search: Courses near me - Postcode search
+    skills_index_selected: Current job skills - Skills selected
+    user_personal_information_skipped: User personal information - Skip this step link clicked
+    job_hunting: Get help with your job hunting skills
+    training: Check your maths and English skills
+    it_training: Computer skills training
+    save:
+      progress: Saved progress
+    return_to_saved_button:
+      progress: Returned to progress button
+    return_to_saved_link:
+      progress: Returned to progress link
+
+  contact_us:
+    title: Free local advice
+    sub_title: Get advice on changing jobs and finding training in your area.
+    by_phone: By phone
+    body: Call free on
+    telephone: 0800 051 0459
+    telephone_link: tel:00448000510459
+    telephone_times: Monday to Friday, 9am to 5pm
+
+  check_your_skills:
+    index:
+      title: Tell us your current job title
+      body: Tell us your current job title so we know what skills you already have.
+      placeholder: Enter your current job title
+      additional_skills:
+        title: Tell us your previous job title
+        body: Tell us your previous job title or volunteer role so we know what skills you already have.
+        placeholder: Enter a job title
+    results:
+      title: Tell us your current job title
+      body: Tell us your current job title so we know what skills you already have.
+      additional_skills:
+        title: Tell us your previous job title
+        body: Tell us your previous job title or volunteer role so we know what skills you already have.
+        placeholder: Enter a job title
+      placeholder: Enter your current job title
+      no_results: 0 results found - try again using a different job title
+  job_profiles:
+    index:
+      title: Search for a type of work you're interested in
+      body: Enter a job title to find out how well your skills match to it.
+      placeholder: Enter a job title
+    vacancies:
+      one: is
+      other: are
+    destroy:
+      notice: The %{name} role has been removed.
+  job_profiles_search:
+    no_term_error: Enter a job title
+  skills_matcher:
+    index:
+      title: Types of work that match your skills
+  home:
+    index:
+      title: Get help to retrain
+  skills:
+    invalid_skills_selected_error: Select at least one skill
+  questions:
+    job_hunting:
+      title: Get help with your job hunting skills
+    training:
+      title: Maths and English skills
+    it_training:
+      title: Computer skills training
+  pages:
+    action_plan:
+      title: Your personal action plan
+    cv_advice:
+      title: CV advice
+    cover_letter_advice:
+      title: How to write a covering letter
+    interview_advice:
+      title: Interview advice
+    offers_near_me:
+      title: Find local schemes and offers
+    task_list:
+      title: Step-by-step guide to changing types of work
+    location_ineligible:
+      title: The full Get help to retrain service isn't available in your area yet
+    cookies_policy:
+      title: Cookies
+    privacy_policy:
+      title: Privacy policy for Get help to retrain
+    information_sources:
+      title: Information sources
+    accessibility_statement:
+      title: Accessibility
+    terms_and_conditions:
+      title: Terms and Conditions
+  help_improve_this_service:
+    title: Help improve this service
+    body: Take a quick survey and tell us about your experience
+  courses:
+    invalid_postcode_error: Enter a valid postcode
+    nonexisting_postcode_error: Enter a real postcode
+    no_postcode_error: Enter a postcode
+  user_personal_data:
+    title: Your information
+  save_your_results:
+    title: Save your progress
+    sub_title: If you like, you can save your progress so you can come back to it later.
+  users:
+    new:
+      title: Save your progress
+    registration_results_saved:
+      title: Your progress has been saved
+    sign_in_link_sent:
+      title: Link sent
+    registration_email_sent_again:
+      title: Email sent again
+    sign_in_link_sent_again:
+      title: Link sent again
+  return_to_saved_results:
+    title: Return to saved progress
+    sub_title: If you’ve previously saved your progress in this service, you can return to it by selecting the button below.
+
+  pagination:
+    previous: Previous
+    next: Next
+    truncate: ...
+
+  flipflop:
+    title: Get help to retrain features
+    feature: Feature
+    clear: clear
+    description: Description
+    feature_states:
+      enabled: 'on'
+      disabled: 'off'
+
+  job_growth_explanation:
+    falling: In the last few years, there has not been as much of this type of work available. You might find it hard to get into this type of work.
+    stable: In the last few years, employers have not really changed how many people they hire to do this type of work. This could mean you have got an average chance of finding work.
+    growing: In the last few years, employers have been hiring more people to do this type of work. If this continues it could mean you are likely to find work.
+    growing_strongly: In the last few years, employers have been hiring a lot more people to do this type of work. If this continues it could mean you are likely to find work.
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: 'Enter an email address'
+              invalid: 'Enter a valid email address'
+        user_personal_data:
+          attributes:
+            first_name:
+              blank: Enter your first name
+            last_name:
+              blank: Enter your last name
+            gender:
+              blank: Enter a gender or choose 'Prefer not to say'
+            postcode:
+              blank: Enter a postcode
+            dob:
+              invalid: Enter a valid date of birth
+
+  active_admin:
+    sign_in:
+      title: GHTR Admin
+    errors:
+      authentication: We could not authenticate you.
+    filters:
+      predicates:
+        from: "From"
+        to: "To"
