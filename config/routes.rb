@@ -2,8 +2,6 @@
 Rails.application.routes.draw do
   mount Flipflop::Engine => '/features' if Rails.env.development?
 
-  mount GovukPublishingComponents::Engine, at: "/component-guide"
-
   constraints(UserConstraint.new) do
     get '/pages/:page', to: 'pages#show'
 

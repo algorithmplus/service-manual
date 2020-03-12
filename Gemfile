@@ -9,8 +9,6 @@ ruby File.read('.ruby-version').chomp
 gem 'rails', '~> 6.0.0'
 gem 'rails-i18n', '~> 6.0.0'
 
-# gov.uk front end components
-gem "govuk_publishing_components", "~> 21.27.1"
 
 # redcarpet for processing markdown
 gem 'redcarpet', '~> 3.5.0'
