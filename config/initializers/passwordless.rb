@@ -1,2 +1,2 @@
 # Tokens can only be used once
-Passwordless.restrict_token_reuse = true
+# Passwordless.restrict_token_reuse = true

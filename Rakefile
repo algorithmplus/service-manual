@@ -3,6 +3,8 @@
 
 require_relative 'config/application'
 
-task lint_ruby: ['lint:ruby']
-task lint_scss: ['lint:scss']
-task default: %i[spec lint_ruby lint_scss]
+Rails.application.load_tasks
+
+# task lint_ruby: ['lint:ruby']
+# task lint_scss: ['lint:scss']
+# task default: %i[spec lint_ruby lint_scss]
