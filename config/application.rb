@@ -1,17 +1,19 @@
-require_relative 'boot'
+require_relative "boot"
 
-require 'rails'
+require "rails"
 # Pick the frameworks you want:
-require 'active_model/railtie'
-require 'active_job/railtie'
-require 'active_record/railtie'
-require 'active_storage/engine'
-require 'action_controller/railtie'
-require 'action_mailer/railtie'
-require 'action_view/railtie'
-# require 'action_cable/engine'
-require 'sprockets/railtie'
-require 'rails/test_unit/railtie'
+require "active_model/railtie"
+require "active_job/railtie"
+# require "active_record/railtie"
+# require "active_storage/engine"
+require "action_controller/railtie"
+require "action_mailer/railtie"
+# require "action_mailbox/engine"
+# require "action_text/engine"
+require "action_view/railtie"
+require "action_cable/engine"
+require "sprockets/railtie"
+require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -34,18 +36,13 @@ module GetHelpToRetrain
 
     # Explicitly load middleware classes
     Dir.glob(Rails.root.join('app', 'middleware', '*.rb')) { |f| require f }
-    config.middleware.insert_before Rails::Rack::Logger, StatusReport
-
     config.admin_mode = ENV['ADMIN_MODE'] == 'true'
+    config.middleware.insert_before Rails::Rack::Logger, StatusReport
     config.google_analytics_tracking_id = ENV['GOOGLE_ANALYTICS_TRACKING_ID']
-    config.notify_api_key = ENV['NOTIFY_API_KEY']
-    config.find_a_job_api_id = ENV['FIND_A_JOB_API_ID']
-    config.find_a_job_api_key = ENV['FIND_A_JOB_API_KEY']
     config.git_commit = ENV['GIT_SHA']
     config.sentry_dsn = ENV['SENTRY_DSN']
     config.environment_name = ENV['ENVIRONMENT_NAME'] || 'development'
     config.host_name = Socket.gethostname
-    config.bing_spell_check_api_key = ENV['BING_SPELL_CHECK_API_KEY']
     config.contentful_api_key = ENV['CONTENTFUL_API_KEY']
     config.contentful_space = ENV['CONTENTFUL_SPACE']
     config.azure_client_id = ENV['AZURE_CLIENT_ID']

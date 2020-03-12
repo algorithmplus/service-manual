@@ -15,13 +15,6 @@ require 'webmock/rspec'
 require 'semantic_logger'
 SimpleCov.start
 
-begin
-  ActiveRecord::Migration.maintain_test_schema!
-rescue ActiveRecord::PendingMigrationError => e
-  puts e.to_s.strip
-  exit 1
-end
-
 VCR.configure do |vcr|
   vcr.cassette_library_dir = 'spec/fixtures/vcr'
   vcr.hook_into :webmock
@@ -37,18 +30,4 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
-
-  DatabaseCleaner.allow_remote_database_url = true
-
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
-    DatabaseCleaner[:active_record, { connection: :restricted }].clean_with(:truncation)
-  end
-
-  config.around do |example|
-    DatabaseCleaner.cleaning do
-      example.run
-    end
-  end
 end
