@@ -1,14 +1,21 @@
-<%= content_for :title, "#{@content.heading} - Service Manual" %>
-<% content_for :meta_description, @content.description %>
+<%= content_for :title, "#{@area.heading} - Service Manual" %>
+<% content_for :meta_description, @area.description %>
 
 <% content_for :phase_message do %>
   <%= render 'shared/custom_phase_message', phase: 'alpha' %>
 <% end %>
 
 <div class="govuk-width-container">
-  <%=  @content.heading %>
+  <%= @area.heading %>
   <br>
-  Updated at: <%=  @content.updated_at %>
+  Updated at: <%= @area.updated_at %>
   <br>
-  <%= raw(@body) %>
+  <%= raw(@area_body) %>
+
+  <ul>
+    <% @sections.each do |section| %>
+      <li><%= section.heading %></li>
+    <% end %>
+  </ul>
+
 </div>

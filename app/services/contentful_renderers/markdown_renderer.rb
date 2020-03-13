@@ -1,6 +1,6 @@
 require 'redcarpet'
 
-module Content
+module ContentfulRenderers
 
   class MarkdownRenderer < Redcarpet::Render::HTML
 

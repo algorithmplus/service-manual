@@ -3,8 +3,19 @@ class ManualController < ApplicationController
   helper ContentfulRails::MarkdownHelper
 
   def area
-    @content = Contentful::Area.find_by(uri: params['uri']).first
+    @area = Contentful::Area.find_by(uri: params['uri']).first
     renderer = RichTextRenderer::Renderer.new
-    @body = renderer.render(@content.body)
+
+    @area_body = if @area.body
+                   renderer.render(@area.body)
+                 else
+                   ''
+                 end
+
+    @sections = if @area.sections
+                  @area.sections
+                else
+                  []
+                end
   end
 end
