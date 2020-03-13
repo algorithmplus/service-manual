@@ -6,7 +6,8 @@
 <% end %>
 
 <div class="govuk-width-container">
-  <%= @area.heading %>
+  <%= link_to 'Home', '/' %>
+  <h1><%= @area.heading %></h1>
   <br>
   Updated at: <%= @area.updated_at %>
   <br>
@@ -14,7 +15,9 @@
 
   <ul>
     <% @sections.each do |section| %>
-      <li><%= section.heading %></li>
+      <li>
+        <%= link_to section.heading, @area.uri + '/' + section.uri %>
+      </li>
     <% end %>
   </ul>
 

@@ -1,0 +1,25 @@
+<%= content_for :title, "#{@section.heading} - Service Manual" %>
+<% content_for :meta_description, @section.description %>
+
+<% content_for :phase_message do %>
+  <%= render 'shared/custom_phase_message', phase: 'alpha' %>
+<% end %>
+
+<div class="govuk-width-container">
+
+  <%= link_to 'Home', '/' %> &gt;
+  <%= link_to @section.area.heading, '/manual/' + @section.area.uri %>
+
+  <h1><%= @section.heading %></h1>
+  <br>
+  Updated at: <%= @section.updated_at %>
+  <br>
+  <%= raw(@section_body) %>
+
+  <ul>
+    <% @items.each do |item| %>
+      <li><%= item.heading %></li>
+    <% end %>
+  </ul>
+
+</div>
