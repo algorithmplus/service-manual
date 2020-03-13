@@ -53,17 +53,6 @@ gem 'canonical-rails'
 # Exception handling
 gem 'sentry-raven', '~> 2.11'
 
-# Pagination
-gem 'kaminari', '~> 1.1', '>= 1.1.1'
-
-# Postcode geocoding and geospatial queries
-gem 'geocoder', '~> 1.5', '>= 1.5.1'
-
-# Postcode validation
-gem 'uk_postcode', '~> 2.1', '>= 2.1.4'
-
-# Web scraper
-gem 'wombat', '~> 2.8'
 
 # Feature flags
 gem 'flipflop', '~> 2.6'
@@ -72,11 +61,6 @@ gem 'splitclient-rb', '~> 6.4'
 # Hashdiff is a ruby library to compute the smallest difference between two hashes.
 gem 'hashdiff', '~> 1.0'
 
-# Notify service - send SMS/Email notifications
-gem 'notifications-ruby-client', '~> 4.0'
-
-# Passwordless authentication
-gem 'passwordless', '~> 0.8'
 
 # Logs formatter
 gem 'rails_semantic_logger', '~> 4.4'

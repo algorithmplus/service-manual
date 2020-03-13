@@ -2,7 +2,7 @@ require 'redcarpet'
 
 module Content
 
-  class Renderer < Redcarpet::Render::HTML
+  class MarkdownRenderer < Redcarpet::Render::HTML
 
     def render_component(component_name, content)
       file_path = "#{Dir.getwd}/public/components/#{component_name}"
