@@ -4,6 +4,10 @@ module Contentful
 
     has_one :area, class_name: "Contentful::Area"
     has_many_nested :subsections, class_name: "Contentful::Section"
+    #
+    # def breadcrumbs
+    #   area.breadcumbs :: uri
+    # end
 
   end
 end

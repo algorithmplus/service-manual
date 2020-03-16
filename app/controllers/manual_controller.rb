@@ -1,38 +1,23 @@
 class ManualController < ApplicationController
 
-  helper ContentfulRails::MarkdownHelper
+  def get_content_body (content)
+    renderer = RichTextRenderer::Renderer.new
+      if content.body
+        renderer.render(content.body)
+      else
+        ''
+      end
+    end
 
   def area
     @area = Contentful::Area.find_by(uri: params['area_uri']).first
-    renderer = RichTextRenderer::Renderer.new
-
-    @area_body = if @area.body
-                   renderer.render(@area.body)
-                 else
-                   ''
-                 end
-
-    @sections = if @area.sections
-                  @area.sections
-                else
-                  []
-                end
+    @sections = @area.sections || []
+    @area_body = get_content_body(@area)
   end
 
   def section
     @section = Contentful::Section.find_by(uri: params['section_uri']).first
-    renderer = RichTextRenderer::Renderer.new
-
-    @section_body = if @section.body
-                      renderer.render(@section.body)
-                    else
-                      ''
-                    end
-
-    @items = if @section.items
-               @section.items
-             else
-               []
-             end
+    @items = @section.items || []
+    @section_body = get_content_body(@section)
   end
 end
