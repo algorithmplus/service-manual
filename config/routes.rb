@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get '/pages/:page', to: 'pages#show'
 
+  get '/manual/:area_uri/:section_uri/:item_uri', to: 'manual#item'
   get '/manual/:area_uri/:section_uri', to: 'manual#section'
   get '/manual/:area_uri', to: 'manual#area'
 

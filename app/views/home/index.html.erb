@@ -37,7 +37,7 @@
       <div class="govuk-grid-row">
         <% row_of_areas.each do |area| %>
           <div class="govuk-grid-column-one-third">
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1"><%= link_to area.heading, area.breadcrumb_uri, class: 'govuk-link' %></h2>
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1"><%= link_to area.heading, '/manual/' + area.uri, class: 'govuk-link' %></h2>
             <p class="govuk-body-s"><%= area.description %></p>
           </div>
         <% end %>

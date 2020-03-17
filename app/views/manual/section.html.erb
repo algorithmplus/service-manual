@@ -18,7 +18,9 @@
 
   <ul>
     <% @items.each do |item| %>
-      <li><%= item.heading %></li>
+      <li>
+      <%= link_to item.heading, '/manual/' + @section.area.uri + '/' +  @section.uri  + '/' + item.uri %>
+      </li>
     <% end %>
   </ul>
 

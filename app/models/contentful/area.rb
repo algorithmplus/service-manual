@@ -5,14 +5,15 @@ module Contentful
 
     has_one :home, class_name: "Contentful::Home"
 
-    def breadcrumb_uri
+    def breadcrumbs
+      breads = [   {:text => 'Home', :uri => '/'} ]
       uri = fields[:uri]
       if uri.match(/^http/)
-        uri
+        breads << {:text => heading, :uri => uri}
       else
-        '/manual/' << uri
+        breads << {:text => heading, :uri => '/manual/' << uri}
       end
-
+        return breads
     end
   end
 end

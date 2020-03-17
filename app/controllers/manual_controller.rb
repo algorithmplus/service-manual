@@ -1,9 +1,10 @@
 class ManualController < ApplicationController
 
   def get_content_body (content)
-    renderer = RichTextRenderer::Renderer.new
       if content.body
-        renderer.render(content.body)
+        RichTextRenderer::Renderer.new(
+          'heading-1' => ContentfulRenderers::HeadingOneRenderer
+        ).render(content.body)
       else
         ''
       end
@@ -20,4 +21,10 @@ class ManualController < ApplicationController
     @items = @section.items || []
     @section_body = get_content_body(@section)
   end
+
+  def item
+    @item = Contentful::Item.find_by(uri: params['item_uri']).first
+    @item_body = get_content_body(@item)
+  end
+
 end

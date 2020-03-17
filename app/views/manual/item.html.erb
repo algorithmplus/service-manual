@@ -1,0 +1,16 @@
+<%= content_for :title, "#{@item.heading} - Service Manual" %>
+<% content_for :meta_description, @item.description %>
+
+<% content_for :phase_message do %>
+  <%= render 'shared/custom_phase_message', phase: 'alpha' %>
+<% end %>
+
+<div class="govuk-width-container">
+
+  <h1><%= @item.heading %></h1>
+  <br>
+  Updated at: <%= @item.updated_at %>
+  <br>
+  <%= raw(@item_body) %>
+
+</div>
