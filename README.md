@@ -1,5 +1,13 @@
 # DfE Service manual
 
+## Before you start
+
+You will need to create a .env.development.local file in your root directory which contains actual values for the following
+```
+CONTENTFUL_API_KEY=xxxxxx
+CONTENTFUL_SPACE=xxxxxx
+```
+
 ## Prerequisites
 
 - Ruby 2.6.5
