@@ -1,3 +1,7 @@
+require 'action_view'
+require 'action_view/helpers'
+include ActionView::Helpers::DateHelper
+
 class ManualController < ApplicationController
 
   def get_content_body (content)
@@ -25,6 +29,6 @@ class ManualController < ApplicationController
   def item
     @item = Contentful::Item.find_by(uri: params['item_uri']).first
     @item_body = get_content_body(@item)
+    @last_updated_date_formatted = time_ago_in_words(@item.updated_at)
   end
-
 end
