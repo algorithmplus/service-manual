@@ -10,6 +10,8 @@ gem 'rails', '~> 6.0.0'
 gem 'rails-i18n', '~> 6.0.0'
 
 
+gem 'govuk_publishing_components'
+
 # redcarpet for processing markdown
 gem 'redcarpet', '~> 3.5.0'
 
