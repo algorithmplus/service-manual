@@ -15,8 +15,8 @@
     <%= favicon_link_tag '/assets/images/govuk-apple-touch-icon-152x152.png', rel: 'apple-touch-icon', type: 'image/png', size: '152x152' %>
     <%= favicon_link_tag '/assets/images/govuk-apple-touch-icon-167x167.png', rel: 'apple-touch-icon', type: 'image/png', size: '167x167' %>
     <%= favicon_link_tag '/assets/images/govuk-apple-touch-icon-180x180.png', rel: 'apple-touch-icon', type: 'image/png', size: '180x180' %>
-    <%= stylesheet_pack_tag 'application', media: 'all' %>
-    <%= javascript_pack_tag 'application', defer: true %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application', defer: true %>
     <%= render 'shared/tracking/google_analytics' %>
   </head>
 
@@ -25,7 +25,10 @@
       document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
     </script>
     <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
-    <%= render 'shared/cookies_banner' unless current_page?(cookies_policy_path) %>
+    <%#= render 'shared/cookies_banner' unless current_page?(cookies_policy_path) %>
+
+    <%= render "govuk_publishing_components/components/cookie_banner", {
+    } %>
     <div id="govuk-header-container">
       <header class="govuk-header" role="banner" data-module="govuk-header" id="govuk-header">
         <div class="govuk-header__container govuk-width-container">
@@ -53,7 +56,8 @@
         <div id="main-content" class="govuk-!-padding-bottom-7">
           <%= yield %>
         </div>
-        <%= render 'shared/feedback/survey' %>
+        <%= render "govuk_publishing_components/components/feedback", {
+        } %>
       </main>
     </div>
 
