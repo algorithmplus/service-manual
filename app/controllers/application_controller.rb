@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
 
   before_action :set_raven_context
 
+  http_basic_authenticate_with name: ENV["HTTP_BASIC_USER"],
+                               password: ENV["HTTP_BASIC_PASSWORD"],
+                               if: -> { ENV["HTTP_BASIC_PASSWORD"].present? }
+
   def url_parser
     @url_parser ||= UrlParser.new(request.referer, request.host)
   end
