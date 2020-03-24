@@ -10,6 +10,8 @@ gem 'rails', '~> 6.0.0'
 gem 'rails-i18n', '~> 6.0.0'
 
 
+gem 'govuk_publishing_components'
+
 # redcarpet for processing markdown
 gem 'redcarpet', '~> 3.5.0'
 
@@ -37,9 +39,6 @@ gem 'puma', '~> 4.3'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 4.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

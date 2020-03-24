@@ -1,0 +1,22 @@
+/**
+https://github.com/alphagov/service-manual-frontend/blob/master/app/assets/stylesheets/modules/_page-contents.scss
+ */
+
+.app-page-contents {
+  &__list li {
+    margin-left: govuk-spacing(0);
+    padding-right: govuk-spacing(3);
+
+    &:before {
+      content: "– ";
+      display: inline-block;
+      padding-right: govuk-spacing(1);
+    }
+  }
+
+  // Styles required by GOVUK.HighlightActiveNavItem JS
+  &__list .active {
+    letter-spacing: 0;
+    font-weight: bold;
+  }
+}

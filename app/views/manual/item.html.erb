@@ -6,11 +6,41 @@
 <% end %>
 
 <div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="app-page-header">
+        <%= render "govuk_publishing_components/components/title", {
+          title: @item.heading
+        } %>
+      </div>
+    </div>
+  </div>
 
-  <h1><%= @item.heading %></h1>
-  <br>
-  Updated at: <%= @item.updated_at %>
-  <br>
-  <%= raw(@item_body) %>
+  <%= render "govuk_publishing_components/components/metadata", {
+    last_updated: @last_updated_date_formatted + " ago"
+  } %>
 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third app-sticky-element">
+      <!--  Page contents -->
+      <div class="page-contents js-page-contents">
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-1 govuk-!-margin-top-3">Page contents:</h2>
+        <ul class="govuk-list app-page-contents__list">
+          <li class="govuk-body-s">
+            <a class="govuk-link" href="#link-1">Link 1</a>
+          </li>
+          <li class="govuk-body-s">
+            <a class="govuk-link" href="#link-2">Link 2</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govspeak-wrapper govuk-!-padding-top-2">
+        <div class="gem-c-govspeak govuk-govspeak " data-module="govspeak">
+          <%= raw(@item_body) %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
