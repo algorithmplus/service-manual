@@ -1,5 +1,8 @@
 //govuk_publishing_components imports
 @import "govuk_publishing_components/all_components";
 
+//global stylesheets
+@import "global/utility";
+
 //app-specific components
 @import "components/page-contents";
