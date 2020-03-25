@@ -6,19 +6,41 @@
 <% end %>
 
 <div class="govuk-width-container">
-  <%= link_to 'Home', '/' %>
-  <h1><%= @area.heading %></h1>
-  <br>
-  Updated at: <%= @area.updated_at %>
-  <br>
-  <%= raw(@area_body) %>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <%= render "govuk_publishing_components/components/title", {
+        title: @area.heading,
+        margin_bottom: 7
+      } %>
+      <p class="govuk-body-l">
+        <%= raw(@area.description) %>
+      </p>
+    </div>
+  </div>
 
-  <ul>
+  <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
     <% @sections.each do |section| %>
-      <li>
-        <%= link_to section.heading, @area.uri + '/' + section.uri %>
-      </li>
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              <%= section.heading %>
+            </span>
+          </h2>
+          <div id="default-id-6b021781-summary-1" class="govuk-accordion__section-summary govuk-body"><%= section.description %></div>
+        </div>
+        <% if section.items %>
+          <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+            <ul class="govuk-list">
+              <% section.items.each do |item| %>
+                <li>
+                  <%= link_to item.heading, @area.uri + '/' + section.uri + '/' + item.uri %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
     <% end %>
-  </ul>
-
+  </div>
 </div>
