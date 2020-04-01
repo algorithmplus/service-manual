@@ -4,6 +4,11 @@ Rails.application.routes.draw do
 
   get '/pages/:page', to: 'pages#show'
 
+  get '/manual/preview/item/:item_id', to: 'manual#item'
+  get '/manual/preview/section/:section_id', to: 'manual#section'
+  get '/manual/preview/area/:area_id', to: 'manual#area'
+  get '/manual/preview/home/', to: 'home#index'
+
   get '/manual/:area_uri/:section_uri/:item_uri', to: 'manual#item'
   get '/manual/:area_uri/:section_uri', to: 'manual#section'
   get '/manual/:area_uri', to: 'manual#area'

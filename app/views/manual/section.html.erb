@@ -1,3 +1,5 @@
+<% # This view is used for preview only. There's no H1 because a section is not a page on its own - it's part of an area. %>
+
 <%= content_for :title, "#{@section.heading} - Service Manual" %>
 <% content_for :meta_description, @section.description %>
 
@@ -5,23 +7,32 @@
   <%= render 'shared/custom_phase_message', phase: 'alpha' %>
 <% end %>
 
+
 <div class="govuk-width-container">
+  <div class="govuk-grid-row">
+  </div>
 
-  <%= link_to 'Home', '/' %> &gt;
-  <%= link_to @section.area.heading, '/manual/' + @section.area.uri %>
-
-  <h1><%= @section.heading %></h1>
-  <br>
-  Updated at: <%= @section.updated_at %>
-  <br>
-  <%= raw(@section_body) %>
-
-  <ul>
-    <% @items.each do |item| %>
-      <li>
-      <%= link_to item.heading, '/manual/' + @section.area.uri + '/' +  @section.uri  + '/' + item.uri %>
-      </li>
-    <% end %>
-  </ul>
-
+  <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+    <div class="govuk-accordion__section ">
+      <div class="govuk-accordion__section-header">
+        <h2 class="govuk-accordion__section-heading">
+          <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+            <%= @section.heading %>
+          </span>
+        </h2>
+        <div id="default-id-6b021781-summary-1" class="govuk-accordion__section-summary govuk-body"><%= @section.description %></div>
+      </div>
+      <% if @section.items %>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+          <ul class="govuk-list">
+            <% @section.items.each do |item| %>
+              <li>
+                <%= link_to item.heading, @section.area.uri + '/' + @section.uri + '/' + item.uri %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
