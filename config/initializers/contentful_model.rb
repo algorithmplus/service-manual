@@ -1,6 +1,6 @@
 ContentfulModel.configure do |config|
   config.access_token = Rails.configuration.contentful_api_key
-  config.preview_access_token = "your preview token in here" # Optional - required if you want to use the preview API
+  config.preview_access_token = Rails.configuration.contentful_preview_api_key # Optional - required if you want to use the preview API
   config.management_token = "your management token in here" # Optional - required if you want to update or create content
   config.space = Rails.configuration.contentful_space
   config.environment = "master" # Optional - defaults to 'master'

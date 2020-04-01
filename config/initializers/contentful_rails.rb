@@ -1,8 +1,8 @@
 ContentfulRails.configure do |config|
-  config.access_token = 'qqcl_gebAjG3SzxafkowGCNnKqoZxHfrFJoJg7PuHwA'
-  config.preview_access_token = "your preview token in here" # Optional - required if you want to use the preview API
+  config.access_token = Rails.configuration.contentful_api_key
+  config.preview_access_token = Rails.configuration.contentful_preview_api_key # Optional - required if you want to use the preview API
   config.management_token = "your management token in here" # Optional - required if you want to update or create content
-  config.space = 'xn0nv6mktmcy'
+  config.space = Rails.configuration.contentful_space
   config.environment = "master" # Optional - defaults to 'master'
   config.default_locale = "en-US" # Optional - defaults to 'en-US'
   config.contentful_options = {# Optional
