@@ -46,19 +46,37 @@ class ManualController < ApplicationController
   end
 
   def area
-    @area = Contentful::Area.find_by(uri: params['area_uri']).first
+    if params['area_uri']
+      @area = Contentful::Area.find_by(uri: params['area_uri']).first
+    elsif params['area_id']
+      ContentfulModel.use_preview_api = true
+      @area = Contentful::Area.find_by(id: params['area_id']).first
+    end
+
     @sections = @area.sections || []
     @area_body = get_content_body(@area)
   end
 
   def section
-    @section = Contentful::Section.find_by(uri: params['section_uri']).first
+    if params['section_uri']
+      @section = Contentful::Section.find_by(uri: params['section_uri']).first
+    elsif params['section_id']
+      ContentfulModel.use_preview_api = true
+      @section = Contentful::Section.find_by(id: params['section_id']).first
+    end
+
     @items = @section.items || []
     @section_body = get_content_body(@section)
   end
 
   def item
-    @item = Contentful::Item.find_by(uri: params['item_uri']).first
+    if params['item_uri']
+      @item = Contentful::Item.find_by(uri: params['item_uri']).first
+    elsif params['item_id']
+      ContentfulModel.use_preview_api = true
+      @item = Contentful::Item.find_by(id: params['item_id']).first
+    end
+
     @item_body = get_content_body(@item)
     @contents = get_contents(@item)
     @last_updated_date_formatted = time_ago_in_words(@item.updated_at)

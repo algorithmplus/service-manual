@@ -44,6 +44,7 @@ module GetHelpToRetrain
     config.environment_name = ENV['ENVIRONMENT_NAME'] || 'development'
     config.host_name = Socket.gethostname
     config.contentful_api_key = ENV['CONTENTFUL_API_KEY']
+    config.contentful_preview_api_key = ENV['CONTENTFUL_PREVIEW_API_KEY']
     config.contentful_space = ENV['CONTENTFUL_SPACE']
     config.azure_client_id = ENV['AZURE_CLIENT_ID']
     config.azure_client_secret = ENV['AZURE_CLIENT_SECRET']
