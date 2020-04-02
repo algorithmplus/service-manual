@@ -72,10 +72,15 @@ class ManualController < ApplicationController
   def item
     if params['item_uri']
       @item = Contentful::Item.find_by(uri: params['item_uri']).first
+      @section = Contentful::Section.find(@item.section.id)
     elsif params['item_id']
       ContentfulModel.use_preview_api = true
       @item = Contentful::Item.find_by(id: params['item_id']).first
+      @section = Contentful::Section.find(@item.section.id)
     end
+
+    @area_breadcrumb = [@section.area.heading, '/manual/' + @section.area.uri]
+    @section_breadcrumb = [@section.heading, '/manual/' + @section.area.uri + '/' + @section.uri]
 
     @item_body = get_content_body(@item)
     @contents = get_contents(@item)

@@ -18,8 +18,6 @@ gem 'redcarpet', '~> 3.5.0'
 # contentful headless CMS
 gem 'contentful', '~>2.15.2'
 
-gem 'contentful_rails', '~>0.5.0'
-# contentful model for activerecord like support
 gem 'contentful_model', '~>1.3.0'
 
 gem "rich_text_renderer"
