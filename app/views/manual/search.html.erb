@@ -1,0 +1,49 @@
+<%= content_for :title, "Search - Service Manual" %>
+<% content_for :meta_description, 'Search results' %>
+
+<% content_for :phase_message do %>
+  <%= render 'shared/custom_phase_message', phase: 'alpha' %>
+<% end %>
+
+<%= link_to 'Home', '/' %>
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="app-page-header">
+        <%= render "govuk_publishing_components/components/title", {
+          title: 'Search results',
+          margin_bottom: 7
+        } %>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third sticky">
+      <!--  Page contents -->
+      <div class="page-contents js-page-contents">
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-1 govuk-!-margin-top-3">blah blah blah</h2>
+        <ul class="govuk-list app-page-contents__list">
+          blah blah blah
+        </ul>
+      </div>
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govspeak-wrapper govuk-!-padding-top-2">
+        <div class="gem-c-govspeak govuk-govspeak " data-module="govspeak">
+          <ol>
+            <% @section_results.each do |result| %>
+              <li><%= link_to result.heading, result.path %></li>
+            <% end %>
+            <% @item_results.each do |result| %>
+              <li><%= link_to result.heading, result.path %></li>
+            <% end %>
+          </ol>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

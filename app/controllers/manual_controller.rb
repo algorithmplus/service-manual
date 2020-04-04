@@ -69,21 +69,25 @@ class ManualController < ApplicationController
     @section_body = get_content_body(@section)
   end
 
+
   def item
     if params['item_uri']
-      @item = Contentful::Item.find_by(uri: params['item_uri']).first
-      @section = Contentful::Section.find(@item.section.id)
+      @item = Contentful::Item.all.params({"include" => 2}).find_by(uri: params['item_uri']).first
     elsif params['item_id']
       ContentfulModel.use_preview_api = true
-      @item = Contentful::Item.find_by(id: params['item_id']).first
-      @section = Contentful::Section.find(@item.section.id)
+      @item = Contentful::Item.all.params({"include" => 2}).find_by(id: params['item_id']).first
     end
 
-    @area_breadcrumb = [@section.area.heading, '/manual/' + @section.area.uri]
-    @section_breadcrumb = [@section.heading, '/manual/' + @section.area.uri + '/' + @section.uri]
+    @area_breadcrumb = [@item.section.area.heading, '/manual/' + @item.section.area.uri]
+    @section_breadcrumb = [@item.section.heading, '/manual/' + @item.section.area.uri + '/' + @item.section.uri]
 
     @item_body = get_content_body(@item)
     @contents = get_contents(@item)
     @last_updated_date_formatted = time_ago_in_words(@item.updated_at)
+  end
+
+  def search
+    @section_results = Contentful::Section.search(heading: params['s']).load
+    @item_results = Contentful::Item.all.params({"include" => 2}).search(heading: params['s']).load
   end
 end

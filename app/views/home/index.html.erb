@@ -15,9 +15,8 @@
           <p class="govuk-body-lead app-hero-lead app-hero__body--inverse govuk-!-padding-bottom-1">
             <%= @home.description %>
           </p>
-          <form action="/search" method="get" role="search">
-            <input type="hidden" name="filter_manual" value="/service-manual">
-            <input type=text/>
+          <form action="/manual/search" method="get" role="search">
+            <input name = "s" type="text"/>
           </form>
         </div>
         <div class="govuk-grid-column-one-third">
