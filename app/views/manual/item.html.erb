@@ -5,9 +5,19 @@
   <%= render 'shared/custom_phase_message', phase: 'alpha' %>
 <% end %>
 
-<%= link_to 'Home', '/' %> &gt;
-<%= link_to @area_breadcrumb[0], @area_breadcrumb[1] %>
-
+<%= render "govuk_publishing_components/components/breadcrumbs", {
+  collapse_on_mobile: true,
+  breadcrumbs: [
+    {
+      title: "Service manual",
+      url: "/"
+    },
+    {
+      title: @area_breadcrumb[0],
+      url: @area_breadcrumb[1]
+    }
+  ]
+} %>
 
 <div class="govuk-width-container">
   <div class="govuk-grid-row">
