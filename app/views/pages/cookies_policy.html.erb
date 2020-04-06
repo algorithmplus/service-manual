@@ -1,13 +1,17 @@
 <% page_title :pages_cookies_policy %>
-<% content_for :breadcrumb do
-    generate_breadcrumbs(
-      t('breadcrumb.cookies_policy'),
-      [
-        [t('breadcrumb.home'), root_path]
-      ]
-    )
-  end
-%>
+
+<%= render "govuk_publishing_components/components/breadcrumbs", {
+  collapse_on_mobile: true,
+  breadcrumbs: [
+    {
+      title: "Service manual",
+      url: "/"
+    },
+    {
+      title: t('.title')
+    }
+  ]
+} %>
 
 <div class="govuk-grid-row govuk-!-margin-top-7 govuk-body">
   <div class="govuk-grid-column-full">
