@@ -16,7 +16,10 @@
             <%= @home.description %>
           </p>
           <form action="/manual/search" method="get" role="search">
-            <input name = "s" type="text"/>
+            <%= render "govuk_publishing_components/components/search", {
+              label_text: 'Search the service manual',
+              name: 's'
+            } %>
           </form>
         </div>
         <div class="govuk-grid-column-one-third">
