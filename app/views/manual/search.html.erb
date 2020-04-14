@@ -43,29 +43,11 @@
   </div>
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-third sticky">
-      <!--  Page contents -->
-      <div class="page-contents js-page-contents">
-        <h2 class="govuk-heading-s govuk-!-margin-bottom-1 govuk-!-margin-top-3">blah blah blah</h2>
-        <ul class="govuk-list app-page-contents__list">
-          blah blah blah
-        </ul>
-      </div>
-    </div>
     <div class="govuk-grid-column-two-thirds">
-      <div class="govspeak-wrapper govuk-!-padding-top-2">
-        <div class="gem-c-govspeak govuk-govspeak " data-module="govspeak">
-          <ol>
-            <% @section_results.each do |result| %>
-              <li><%= link_to result.heading, result.path %></li>
-            <% end %>
-            <% @item_results.each do |result| %>
-              <li><%= link_to result.heading, result.path %></li>
-            <% end %>
-          </ol>
-
-        </div>
-      </div>
+      <%= render "govuk_publishing_components/components/document_list", {
+        remove_underline: true,
+        items: @results
+      } %>
     </div>
   </div>
 </div>
