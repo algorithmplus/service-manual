@@ -69,7 +69,6 @@ class ManualController < ApplicationController
     @section_body = get_content_body(@section)
   end
 
-
   def item
     if params['item_uri']
       @item = Contentful::Item.all.params({"include" => 2}).find_by(uri: params['item_uri']).first
@@ -91,5 +90,22 @@ class ManualController < ApplicationController
     item_results = Contentful::Item.all.params({"include" => 2}).search(heading: params['s']).load
     @search_string = params['s']
     @results = SearchResults.transform(section_results) + SearchResults.transform(item_results)
+  end
+
+  def documentation
+    if params['doc_uri']
+      @doc = Contentful::SiteDocumentation.all.params({"include" => 2}).find_by(uri: params['doc_uri']).first
+    elsif params['doc_id']
+      ContentfulModel.use_preview_api = true
+      @doc = Contentful::SiteDocumentation.all.params({"include" => 2}).find_by(id: params['doc_id']).first
+    end
+
+    puts @doc.inspect
+
+    @doc_breadcrumb = [@doc.heading, '/manual/']
+
+    @doc_body = get_content_body(@doc)
+    @contents = get_contents(@doc)
+    @last_updated_date_formatted = time_ago_in_words(@doc.updated_at)
   end
 end
