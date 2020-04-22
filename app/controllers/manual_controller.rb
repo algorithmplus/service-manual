@@ -100,8 +100,6 @@ class ManualController < ApplicationController
       @doc = Contentful::SiteDocumentation.all.params({"include" => 2}).find_by(id: params['doc_id']).first
     end
 
-    puts @doc.inspect
-
     @doc_breadcrumb = [@doc.heading, '/manual/']
 
     @doc_body = get_content_body(@doc)
