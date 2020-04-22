@@ -22,6 +22,7 @@ class ManualController < ApplicationController
           'unordered-list' => ContentfulRenderers::EmptyRenderer,
           'embedded-entry-block' => ContentfulRenderers::EmptyRenderer,
           'embedded-asset-block' => ContentfulRenderers::EmptyRenderer,
+          'entry-hyperlink' => ContentfulRenderers::EmptyRenderer,
           'asset-hyperlink' => ContentfulRenderers::EmptyRenderer,
           'hr' => ContentfulRenderers::EmptyRenderer,
           'text' => RichTextRenderer::TextRenderer,
@@ -38,7 +39,8 @@ class ManualController < ApplicationController
   def get_content_body (content)
     if content.body
       RichTextRenderer::Renderer.new(
-          'heading-2' => ContentfulRenderers::HeadingTwoRenderer
+          'heading-2' => ContentfulRenderers::HeadingTwoRenderer,
+          'entry-hyperlink' => ContentfulRenderers::EntryHyperlinkRenderer
       ).render(content.body)
     else
       ''
@@ -71,10 +73,10 @@ class ManualController < ApplicationController
 
   def item
     if params['item_uri']
-      @item = Contentful::Item.all.params({"include" => 2}).find_by(uri: params['item_uri']).first
+      @item = Contentful::Item.all.params({"include" => 3}).find_by(uri: params['item_uri']).first
     elsif params['item_id']
       ContentfulModel.use_preview_api = true
-      @item = Contentful::Item.all.params({"include" => 2}).find_by(id: params['item_id']).first
+      @item = Contentful::Item.all.params({"include" => 3}).find_by(id: params['item_id']).first
     end
 
     @area_breadcrumb = [@item.section.area.heading, '/manual/' + @item.section.area.uri]
