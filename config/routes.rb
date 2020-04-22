@@ -5,11 +5,13 @@ Rails.application.routes.draw do
   get '/pages/:page', to: 'pages#show'
 
   get '/manual/search', to: 'manual#search'
+  get '/manual/preview/documentation/:doc_id', to: 'manual#documentation'
   get '/manual/preview/item/:item_id', to: 'manual#item'
   get '/manual/preview/section/:section_id', to: 'manual#section'
   get '/manual/preview/area/:area_id', to: 'manual#area'
   get '/manual/preview/home/', to: 'home#index'
 
+  get '/documentation/:doc_uri', to: 'manual#documentation'
   get '/manual/:area_uri/:section_uri/:item_uri', to: 'manual#item'
   get '/manual/:area_uri/:section_uri', to: 'manual#section'
   get '/manual/:area_uri', to: 'manual#area'
@@ -19,12 +21,6 @@ Rails.application.routes.draw do
   get '/404', to: 'errors#not_found', via: :all
   get '/422', to: 'errors#unprocessable_entity', via: :all
   get '/500', to: 'errors#internal_server_error', via: :all
-
-  get 'cookies-policy', to: 'pages#cookies_policy'
-  get 'privacy-policy', to: 'pages#privacy_policy'
-  get 'information-sources', to: 'pages#information_sources'
-  get 'accessibility-statement', to: 'pages#accessibility_statement'
-  get 'terms-and-conditions', to: 'pages#terms_and_conditions'
 
   resources :feedback_surveys, only: %i[create]
 

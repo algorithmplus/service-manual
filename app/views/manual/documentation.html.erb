@@ -1,0 +1,46 @@
+<%= content_for :title, "#{@doc.heading} - Service Manual" %>
+<% content_for :meta_description, @doc.description %>
+
+<% content_for :phase_message do %>
+  <%= render 'shared/custom_phase_message', phase: 'alpha' %>
+<% end %>
+
+<%= render "govuk_publishing_components/components/breadcrumbs", {
+  collapse_on_mobile: true,
+  breadcrumbs: [
+    {
+      title: "Service manual",
+      url: "/"
+    },
+    {
+      title: @doc.heading
+    }
+  ]
+} %>
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="app-page-header">
+        <%= render "govuk_publishing_components/components/title", {
+          title: @doc.heading,
+          margin_bottom: 7
+        } %>
+      </div>
+    </div>
+  </div>
+
+  <%= render "govuk_publishing_components/components/metadata", {
+    last_updated: @last_updated_date_formatted + " ago"
+  } %>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govspeak-wrapper govuk-!-padding-top-2">
+        <div class="gem-c-govspeak govuk-govspeak " data-module="govspeak">
+          <%= raw(@doc_body) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
