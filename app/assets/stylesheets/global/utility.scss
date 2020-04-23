@@ -1,6 +1,8 @@
-.u-sticky {
-  position: sticky;
-  top: 0;
+@include govuk-media-query(tablet) {
+  .u-sticky {
+    position: sticky;
+    top: 0;
+  }
 }
 
 .u-gutter-top {
