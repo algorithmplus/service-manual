@@ -32,18 +32,18 @@
   </div>
 
   <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
-    <% @sections.each do |section| %>
+    <% @sections.each.with_index(1) do |section, index| %>
       <div class="govuk-accordion__section ">
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-<%= index %>">
               <%= section.heading %>
             </span>
           </h2>
-          <div id="default-id-6b021781-summary-1" class="govuk-accordion__section-summary govuk-body"><%= section.description %></div>
+          <div id="accordion-default-summary-<%= index %>" class="govuk-accordion__section-summary govuk-body"><%= section.description %></div>
         </div>
-        <% if section.items %>
-          <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+        <div id="accordion-default-content-<%= index %>" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-<%= index %>">
+          <% if section.items %>
             <ul class="govuk-list">
               <% section.items.each do |item| %>
                 <li>
@@ -51,8 +51,8 @@
                 </li>
               <% end %>
             </ul>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>
