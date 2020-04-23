@@ -4,8 +4,14 @@ module ContentfulRenderers
   # H2 node renderer.
   class HeadingTwoRenderer < RichTextRenderer::BaseBlockRenderer
     def render(node)
-      hash = node['content'][0]['value'].hash
-      "<h2><a id='#{hash}'>#{render_content(node)}</a></h2>"
+      whole_heading = ''
+
+      node['content'].each do |content|
+        whole_heading += content['value']
+      end
+
+      hash = whole_heading.parameterize
+      "<h2><a id='#{hash}'>#{whole_heading}</a></h2>"
     end
   end
 end
