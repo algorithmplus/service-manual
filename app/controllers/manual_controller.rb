@@ -40,7 +40,8 @@ class ManualController < ApplicationController
     if content.body
       RichTextRenderer::Renderer.new(
           'heading-2' => ContentfulRenderers::HeadingTwoRenderer,
-          'entry-hyperlink' => ContentfulRenderers::EntryHyperlinkRenderer
+          'entry-hyperlink' => ContentfulRenderers::EntryHyperlinkRenderer,
+          'asset-hyperlink' => ContentfulRenderers::AssetHyperlinkRenderer
       ).render(content.body)
     else
       ''
