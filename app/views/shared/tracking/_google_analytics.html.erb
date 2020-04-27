@@ -5,6 +5,7 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+    gtag('set', {'content_group1': '<%= yield(:ga_page_type) %>' });
 
     gtag('config', '<%= Rails.configuration.google_analytics_tracking_id %>');
   </script>
