@@ -11,7 +11,6 @@ require "action_mailer/railtie"
 # require "action_mailbox/engine"
 # require "action_text/engine"
 require "action_view/railtie"
-require "action_cable/engine"
 require "sprockets/railtie"
 require "rails/test_unit/railtie"
 
@@ -46,12 +45,5 @@ module GetHelpToRetrain
     config.contentful_api_key = ENV['CONTENTFUL_API_KEY']
     config.contentful_preview_api_key = ENV['CONTENTFUL_PREVIEW_API_KEY']
     config.contentful_space = ENV['CONTENTFUL_SPACE']
-    config.azure_client_id = ENV['AZURE_CLIENT_ID']
-    config.azure_client_secret = ENV['AZURE_CLIENT_SECRET']
-    config.azure_scopes = ENV['AZURE_SCOPES']
-    config.azure_tenant_id = ENV['AZURE_TENANT_ID']
-    config.azure_management_role_id = ENV['AZURE_MANAGEMENT_ROLE_ID']
-    config.azure_readwrite_role_id = ENV['AZURE_READWRITE_ROLE_ID']
-    config.azure_read_role_id = ENV['AZURE_READ_ROLE_ID']
   end
 end

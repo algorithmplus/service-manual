@@ -22,10 +22,6 @@ gem 'contentful_model', '~>1.3.0'
 
 gem "rich_text_renderer"
 
-# Azure AD integration with Omniauth and OAuth2
-gem 'omniauth-oauth2', '~> 1.6'
-gem 'omniauth-rails_csrf_protection', '~> 0.1'
-
 # Gem for user activity auditing
 gem 'paper_trail', '~> 10.3'
 
